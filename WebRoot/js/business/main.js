@@ -46,7 +46,7 @@ function tree1() {
 	var keyword = $("#page1text").val();
 	$.ajax({
 		type : "POST",
-		url : "/zlml/tree",
+		url : "zlml/tree",
 		data : {"keyword":keyword},
 		dataType : "json",
 		success : function(data) {
@@ -56,23 +56,23 @@ function tree1() {
 }
 function tree2(){
 	var fl = $("#fl_select").val();
-	
 	$.ajax({
 		type : "POST",
-		url : "/khzb/tree",
+		url : "khzb/tree",
 		data : {"fl":fl},
 		dataType : "json",
 		success : function(data) {
 			$.fn.zTree.init($("#tree2"), tree2setting, data);
 		}
      });
+	loadTask();
 }
 
 
 function page1TreeClick(event, treeId, treeNode) {
 	$.ajax({
 		type : "POST",
-		url : "/zlml/byId",
+		url : "zlml/byId",
 		data : {"ID":treeNode.id},
 		dataType : "json",
 		success : function(data) {
@@ -83,7 +83,7 @@ function page1TreeClick(event, treeId, treeNode) {
 function page2TreeClick(event, treeId, treeNode){
 	$.ajax({
 		type : "POST",
-		url : "/khzb/byId",
+		url : "khzb/byId",
 		data : {"ID":treeNode.id},
 		dataType : "json",
 		success : function(data) {
@@ -106,7 +106,7 @@ function page2TreeClick(event, treeId, treeNode){
 function loadTable(khzbid){
 	$.ajax({
 		type : "POST",
-		url : "/lj/byId",
+		url : "lj/byId",
 		data : {"khzbid":khzbid},
 		dataType : "json",
 		success : function(data) {
@@ -115,13 +115,57 @@ function loadTable(khzbid){
 				html += "<tr>"
 				html += "<td class=\"fixedTd\"><a href=\""+data[i].path+"\" target=\"_blank\">" + data[i].context + "</a></td>" 
 				html += "<td class=\"fixedTd\">" + data[i].username + "</td>"
-				html += "<td >"+ data[i].password + "</td>"
+				html += "<td ><div class=\"btnarea\">" +
+						"<input name=\"upload\" type=\"button\" class=\"btn_upload\" onclick=\"javascript:openUploadPage("+data[i].ID+")\" />";
+				if(data[i].app != null && data[i].app != ''){
+					html += "<a class=\"btn_download\" href=\"lj/download?id="+ data[i].ID +"\"/>";
+				}
+				html += "</div></td>"
 				html += "</tr>"
 		    }
-			
 			$("#mytable").html(html);
 		}
      });
+}
+
+function loadTask(){
+	var code = $("#fl_select").val();
+	if(code == null || code == ''){
+		$('#groupTaskArea').val("");
+	}else{
+		$.ajax({
+			type : "POST",
+			url : "dict/dt",
+			data : {"code":code},
+			dataType : "json",
+			success : function(data) {
+				$('#groupTaskArea').val(data.val);
+			}
+	     });
+	}
+}
+
+function sumbitTask(){
+	var code = $("#fl_select").val();
+	var values = $("#groupTaskArea").val();
+	if(code == null || code == ''){
+		$('#groupTaskArea').val("");
+	}else{
+		$.ajax({
+			type : "POST",
+			url : "dict/uptByCode",
+			data : {"code":code,"values":values},
+			dataType : "json",
+			success : function(data) {
+				alert("任务发布成功")
+			}
+	     });
+	}
+}
+
+function openUploadPage(id){
+	window.open('fileUpload?id=' + id,'_fileUpload','','width=200,height=100')
+	
 }
 
 function save(){
@@ -131,7 +175,7 @@ function save(){
 	if (id != null && id != 0){
 		$.ajax({
 			type : "POST",
-			url : "/khzb/update",
+			url : "khzb/update",
 			data : {"ID":id,"zcqk":zcqk},
 			dataType : "json",
 			success : function(data) {
@@ -148,7 +192,7 @@ function marking(){
 	if (id != null && id != 0){
 		$.ajax({
 			type : "POST",
-			url : "/khzb/marking",
+			url : "khzb/marking",
 			data : {"ID":id,"fs":fs},
 			dataType : "json",
 			success : function(data) {
@@ -162,7 +206,7 @@ function getScores(){
 	var fl = $("#fl_select").val();
 	$.ajax({
 		type : "POST",
-		url : "/khzb/getScores",
+		url : "khzb/getScores",
 		data : {"fl":fl},
 		dataType : "json",
 		success : function(data) {
@@ -170,5 +214,3 @@ function getScores(){
 		}
      });
 }
-
-
