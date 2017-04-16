@@ -3,12 +3,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>创建智能化现代文明监狱</title>
-	<link rel="shortcut icon" type="image/x-icon" href="../images/head.ico" media="screen" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/head.ico" media="screen" />
 	<link href="css/css.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="../js/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css" />
-	<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
-	<script type="text/javascript" src="../js/ztree/js/jquery.ztree.core.js"></script>
-	<script type="text/javascript" src="../js/business/main.js"></script>
+	<link rel="stylesheet" href="js/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="js/ztree/js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="js/business/main.js"></script>
+	<script type="text/javascript" src="js/my97DatePicker/WdatePicker.js"></script>
+	
 </head>
 
 <body>
@@ -16,46 +18,59 @@
     	<div class="nj_tab">
         	<ul id="tab_bg">
             	<li class="selectTag">
-                	<a class="selectTag" onclick="selectTag('tagContent20',this)"  href="javascript:void(0)">浙江省女子监狱创建智能化现代文明监狱资料目录</a>
+                	<a class="selectTag" onclick="selectTag('tagContent20',this)"  href="javascript:void(0)">创建智能化现代文明监狱资料目录</a>
                 </li>
                 <li>
-                	<a onclick="selectTag('tagContent21',this)" href="javascript:void(0)">浙江省智能化现代文明监狱考核性指标验收细则</a>
+                	<a onclick="selectTag('tagContent21',this)" href="javascript:void(0)">智能化现代文明监狱考核性指标验收细则</a>
+                </li>
+                <li>
+                	<a onclick="selectTag('tagContent22',this)" href="javascript:void(0)">智能化现代文明监狱建设任务跟踪</a>
                 </li>
             </ul>
             <!--表一 -->
             <div class="tagContent2 selectTag" id="tagContent20">
-                <h1>浙江省女子监狱创建智能化现代文明监狱资料</h1>
+                <h1>浙江省南湖监狱创建智能化现代文明监狱资料</h1>
                 <div class="Ltree">
                 	<ul id="tree1" class="ztree"></ul>
                 </div>
                 <div class="Rcontent">
                 	<input name="rearch" type="text" class="Rinput" id="page1text" />
-                    <input name="btn" type="button" value="查找" class="Rsearch" onclick="javascript:tree1();"/>
+                    <input name="btn" type="button" value="查找" class="Rsearch" style=" margin-left:10px;" onclick="javascript:tree1();"/>
                     <textarea id="page1TextArea" readonly="readonly" class="text_style">选中左边节点显示相应内容</textarea>
                 </div>
             </div>
             <!--表二 -->
-            <div class="tagContent2" id="tagContent21" style="height:931px;">
-            	<h1>浙江省女子监狱创建智能化现代文明监狱资料</h1>
+            <div class="tagContent2" id="tagContent21" style="height:991px;">
+            	<h1>浙江省南湖监狱创建智能化现代文明监狱资料</h1>
                 <div class="divide">
-                	<div class="group">组别：
-                    	<select id="fl_select" class="group_list" onchange="javascrpit:tree2()">
-                        	<option value=""> </option>
-							<option value="Z">创建办</option>
-							<option value="A">狱政管理组</option>
-							<option value="B">教育改造组</option>
-							<option value="C">刑罚执行组</option>
-							<option value="D">劳动改造组</option>
-							<option value="E">设施装备组</option>
-							<option value="F">队伍建设组</option>
-							<option value="G">政务信息组</option>
-							<option value="H">技术保障组</option>
-                        </select>
-                    </div>
+					<div class="leftCZ">
+						<div class="group">组别：
+							<select id="fl_select" class="group_list" onchange="javascrpit:tree2()">
+								<option value=""> </option>
+								<option value="Z">创建办</option>
+								<option value="A">狱政管理组</option>
+								<option value="B">教育改造组</option>
+								<option value="C">刑罚执行组</option>
+								<option value="D">劳动改造组</option>
+								<option value="E">设施装备组</option>
+								<option value="F">队伍建设组</option>
+								<option value="G">政务信息组</option>
+								<option value="H">技术保障组</option>
+							</select>
+						</div>
+						<div class="group" style="margin-top:10px;">
+                        	<div style=" float:left;">任务：</div>
+                        	<textarea class="text_style3" id="groupTaskArea"></textarea>
+                    	</div>
+                        <input name="grade" type="button" value="发布" 
+                        	class="Rsearch" style=" margin:9px 0 0 10px;" onclick="javascrpt:sumbitTask()"/>
+					</div>
                     <div class="score">
                     	<input name="score" type="text" class="score_input" id="page2score" />
-                    	<input name="grade" type="button" value="打分" class="Rsearch" onclick="javascrpt:marking()" />
-                    	<input name="check" type="button" value="查看总分" class="Rsearch" onclick="javascrpt:getScores()"/>
+						<div class="btnCZ">
+							<input name="grade" type="button" value="打分" class="Rsearch" onclick="javascrpt:marking()" />
+							<input name="check" type="button" value="查看总分" class="Rsearch" style="margin-left:10px;"  onclick="javascrpt:getScores()"/>
+						</div>
                     </div>
                 </div>
                 <div class="divide" style="margin:18px 0 0 0;">
@@ -76,7 +91,7 @@
                           <tr>
                             <th class="fixedTd">链接内容</th>
                             <th class="fixedTd">用户名</th>
-                            <th style="border-right:1px solid #8eaac9;">密码</th>
+                            <th style="border-right:1px solid #8eaac9;">操作</th>
                           </tr>
                           <tr>
                             <td colspan="3" height="78px">
@@ -95,7 +110,12 @@
                                       <tr>
                                         <td></td>
                                         <td></td>
-                                        <td>&nbsp;</td>
+                                        <td>
+                                        	<div class="btnarea">
+                                            	<input name="upload" type="button" class="btn_upload" />
+                                                <input name="upload" type="button" class="btn_download" />
+                                            </div>
+                                        </td>
                                       </tr>
                                        <tr>
                                         <td></td>
@@ -110,6 +130,75 @@
                     </div>
                 </div>
             </div>
+        	<!--表三 -->
+            <div class="tagContent2" id="tagContent22" style="height:791px;">
+               <h1>浙江省南湖监狱创建智能化现代文明监狱资料</h1>
+                <div class="divide">
+                	<!--<div class="centerCz">
+                		<div class="group">组别：
+                    		<select class="group_list">
+                        		<option>1</option>
+                            	<option>2</option>
+                        	</select>
+                    	</div>
+                    </div>
+                    <div class="score">
+                    	<input name="score" type="text" class="score_input" />
+                        <div class="btnCZ">
+                    		<input name="grade" type="button" value="打分" class="Rsearch" />
+                    		<input name="check" type="button" value="查看总分" class="Rsearch" style="margin-left:10px;" />
+                        </div>
+                    </div>
+					-->
+                </div>
+                <div class="divide" style="margin:18px 0 0 0;">
+					<div class="Lcontent" style="height:780px;">
+						<div class="group" style="margin: 0 20px 10px;">组别：
+							<select class="group_list">
+                        		<option value=""> </option>
+								<option value="Z">创建办</option>
+								<option value="A">狱政管理组</option>
+								<option value="B">教育改造组</option>
+								<option value="C">刑罚执行组</option>
+								<option value="D">劳动改造组</option>
+								<option value="E">设施装备组</option>
+								<option value="F">队伍建设组</option>
+								<option value="G">政务信息组</option>
+								<option value="H">技术保障组</option>
+							</select>
+                    	</div>
+						<div class="Ltree2" ></div>
+						<div class="textfour2">阶段工作存在的问题<textarea class="text_style4">选中树某个节点显示相应文本</textarea></div>
+						<div class="textfour2">下一步工作计划<textarea class="text_style4">选中树某个节点显示相应文本</textarea></div>
+					</div>
+                	<div class="Rcontent">
+                    	<div class="textfour">目标任务<textarea class="text_style2">选中左边树某个节点显示相应文本</textarea></div>
+						<div class="textfour" style="margin-top:20px;">
+							<input name="rearch" onclick="WdatePicker()" type="text" style="width:118px; height:26px; line-height:26px; padding:0 5px 0 5px; border:1px solid #91b5e5; float:left;"/>
+							<span style="float:left;height:26px; margin:0 auto;padding-left:12px;padding-right: 4px;line-height: 26px;"> 责任单位</span>
+							<input type="text" style="width:148px; height:26px; line-height:26px; padding-left:5px; border:1px solid #91b5e5; float:left;"/>
+						</div>
+                        <div class="textfour" style="margin-top:20px;">阶段工作任务发布<textarea class="text_style2">选中左边树某个节点显示相应文本</textarea></div>
+                        <div class="textfour" style="margin-top:20px;">阶段工作进展<textarea class="text_style2">选中左边树某个节点显示相应文本</textarea></div>
+                        <div class="textfour" style="margin-top:20px;">资料下载
+							<ul class="ul_style">
+							   <li><a href="http://www.baidu.com" style="float:left">Coffee</a><input title="删除文件" type="button" class="btn_delete" /></li>
+							   <li><a href="http://www.baidu.com" style="float:left">jetty.file</a><input type="button" class="btn_delete" /></li>
+							   <li><a href="http://www.baidu.com" style="float:left">zTree.7z</a><input type="button" class="btn_delete" /></li>
+							   <li><a href="http://www.baidu.com" style="float:left">Coffee</a><input type="button" class="btn_delete" /></li>
+							   <li><a href="http://www.baidu.com" style="float:left">Coffee</a><input type="button" class="btn_delete" /></li>
+							   <li><a href="http://www.baidu.com" style="float:left">Coffee</a><input type="button" class="btn_delete" /></li>
+							   <li><a href="http://www.baidu.com" style="float:left">Coffee</a><input type="button" class="btn_delete" /></li>
+							   <li><a href="http://www.baidu.com" style="float:left">Coffee</a><input type="button" class="btn_delete" /></li>
+							</ul>
+						</div >
+						<div class="save">
+							<input name="save" type="button" value="保存" class="btn_save" />
+							<input name="save" type="button" value="上传资料" class="btn_save" />
+						</div>
+                    </div>
+                </div>
+        	</div>
         </div>
     </div>
     
