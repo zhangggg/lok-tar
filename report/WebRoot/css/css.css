@@ -62,10 +62,19 @@ a:hover{
 .selectTag{ display:block;}
 .tagContent2 h1{ font-size:20px; color:#0040a9; font-weight:bold; text-align:center; margin:30px 0 30px;}
 .Ltree{ width:370px; height:500px; background:#eff5ff; margin:0 20px 10px; border:1px solid #91b5e5; float:left;}
+.Lcontent{ width:370px; height:500px; float:left; margin:0 20px 10px;}
+.Ltree2{ width:343px; height:251px; float:left; background:#eff5ff; margin:0 20px 10px; border:1px solid #91b5e5;}
 .Rcontent{ width:370px; height:500px; float:left;}
 .Rinput{ width:263px; height:26px; line-height:26px; padding-left:5px; border:1px solid #91b5e5; display:block; float:left;}
 .Rsearch{ width:80px; height:28px; background:url(../images/btn_search.gif) no-repeat; line-height:28px; color:#0057a3; font-weight:bold; border:none; cursor:pointer; float:left;}
 .text_style{ width:354px; height:447px; float:left; font-size:14px; color:#000000; padding:5px 0 0 5px; margin-top:20px; background:#fff url(../images/text_bg.gif) no-repeat; border:1px solid #bcbcbc; display:block; float:left;}
+.ul_style{width:353px; height:100px;overflow:auto; font-size:14px; color:#00F; padding:4px 0 0 5px; margin-top:6px; background:#fff url(../images/text_bg.gif) no-repeat; border:1px solid #bcbcbc; display:block; float:left;}
+.ul_style a{color:#006699;height:26px;}
+.ul_style a:link{color:#006699;height:26px;}
+.ul_style a:active{font-size:14px;color:#990000;height:26px;}
+.ul_style a:hover{font-size:12px; color:#3366ff;height:26px;}
+.ul_style li{margin:0px;padding:0px;height:26px;}
+
 
 .divide{ width:100%; float:left;}
 .belowarea{ width:100%; float:left;}
@@ -76,9 +85,10 @@ a:hover{
 .score_input{ width:168px; height:26px; line-height:26px; border:1px solid #91b5e5; display:block; float:left;}
 .btnCZ{ width:170px; margin-top:9px; float:left;}
 .textfour{ width:100%; font-size:14px; color:#333; float:left;}
+.textfour2{ width:100%; font-size:14px; color:#333; float:left;margin: 0 20px 10px;}
 .text_style2{ width:353px; height:100px; font-size:14px; color:#000000; padding:5px 0 0 5px; margin-top:8px; background:#fff url(../images/text_bg.gif) no-repeat; border:1px solid #bcbcbc; display:block; float:left;}
-.text_style3{ width:218px; height:45px; font-size:14px; color:#000000; padding:5px 0 0 5px; margin-left:4px; border:1px solid #bcbcbc;}
-
+.text_style3{ width:218px; height:45px; font-size:14px; color:#000000; padding:5px 0 0 5px; margin-left:4px; background:#fff url(../images/text_bg.gif) no-repeat; border:1px solid #bcbcbc;}
+.text_style4{ width:340px; height:100px; font-size:14px; color:#000000; padding:5px 0 0 5px; margin-top:8px; background:#fff url(../images/text_bg.gif) no-repeat; border:1px solid #bcbcbc; display:block; float:left;}
 .save{ width:100%; float:left;}
 .btn_save{ width:80px; height:28px; background:url(../images/btn_search.gif) no-repeat; line-height:28px; color:#0057a3; font-weight:bold; border:none; cursor:pointer; margin:20px 10px; display:block; float:right;}
 .linkTable{ width:359px; color:#313131; text-align:center; background:#fff; border-top:1px solid #8eaac9; border-left:1px solid #8eaac9; margin-bottom:3px;}
@@ -92,11 +102,6 @@ a:hover{
 .tip{ color:#F00; margin-bottom:6px; float:left;}
 .btnarea{ width:43px; margin:0 auto;}
 .btn_upload{ width:14px; height:13px; background:url(../images/icon_upload.png) no-repeat; margin-right:15px; border:none;cursor:pointer; float:left;}
+.btn_delete{ width:14px; height:13px; background:url(../images/delete.png) no-repeat;margin-left:10px;margin-right:15px; border:none;cursor:pointer;}
 .btn_download{ width:14px; height:13px; background:url(../images/icon_download.png) no-repeat; border:none;cursor:pointer; float:left;}
-
-
-
-
-
-
 
