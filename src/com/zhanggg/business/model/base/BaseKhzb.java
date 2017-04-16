@@ -10,7 +10,7 @@ import com.jfinal.plugin.activerecord.IBean;
 public abstract class BaseKhzb<M extends BaseKhzb<M>> extends Model<M> implements IBean {
 
 	public M setID(Integer ID) {
-		set("id", ID);
+		set("ID", ID);
 		return (M)this;
 	}
 

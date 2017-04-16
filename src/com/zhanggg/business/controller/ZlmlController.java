@@ -41,29 +41,33 @@ public class ZlmlController extends Controller{
 		} else {
 			ZlmlBean result = CacheKit.get("zhanggg", "zlml");
 			if (result == null) {
-				List<Zlml> zlmls = Zlml.dao.find(sql);
-				List<ZlmlBean> zlmlBeans = new ArrayList<ZlmlBean>();
-				ZlmlBean father = null;
-				for (Zlml _zlml : zlmls) {
-					ZlmlBean _bean = new ZlmlBean(
-							_zlml.getID(),
-							_zlml.getZj(),
-							_zlml.getNr(),
-							_zlml.getFatherZJ(),
-							_zlml.getPx());
-					
-					if (father == null) {
-						father = _bean;
-					}else {
-						if (father.getFatherZJ() > _bean.getFatherZJ()) {
+				try {
+					List<Zlml> zlmls = Zlml.dao.find(sql);
+					List<ZlmlBean> zlmlBeans = new ArrayList<ZlmlBean>();
+					ZlmlBean father = null;
+					for (Zlml _zlml : zlmls) {
+						ZlmlBean _bean = new ZlmlBean(
+								_zlml.getID(),
+								_zlml.getZj(),
+								_zlml.getNr(),
+								_zlml.getFatherZJ(),
+								_zlml.getPx());
+						
+						if (father == null) {
 							father = _bean;
+						}else {
+							if (father.getFatherZJ() > _bean.getFatherZJ()) {
+								father = _bean;
+							}
 						}
+						zlmlBeans.add(_bean);
 					}
-					zlmlBeans.add(_bean);
+					father.setSons(buildTree(zlmlBeans, father));
+					CacheKit.put("zhanggg", "zlml", father);
+					renderJson(father);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-				father.setSons(buildTree(zlmlBeans, father));
-				CacheKit.put("zhanggg", "zlml", father);
-				renderJson(father);
 			}else {
 				renderJson(result);
 			}

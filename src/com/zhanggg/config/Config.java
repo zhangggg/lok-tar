@@ -12,6 +12,7 @@ import com.jfinal.plugin.activerecord.dialect.Sqlite3Dialect;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.jfinal.template.Engine;
+import com.zhanggg.business.controller.DictController;
 import com.zhanggg.business.controller.HelloController;
 import com.zhanggg.business.controller.KhzbController;
 import com.zhanggg.business.controller.LjController;
@@ -32,6 +33,7 @@ public class Config extends JFinalConfig {
 		me.add("/zlml",ZlmlController.class);
 		me.add("/khzb",KhzbController.class);//考核指标
 		me.add("/lj",LjController.class);
+		me.add("/dict",DictController.class);
 		
 	}
 
